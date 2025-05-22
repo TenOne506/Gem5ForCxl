@@ -54,4 +54,22 @@ Source('pixelpump.cc')
 DebugFlag('Intel8254Timer')
 DebugFlag('MC146818')
 
-GTest('reg_bank.test', 'reg_bank.test.cc', with_tag('gem5 trace'))
+
+
+SimObject('PciBridge.py',sim_objects=['PciBridge'])
+Source('PciBridge.cc')
+DebugFlag('PciBridge')
+
+SimObject('PciBridge2.py',sim_objects=['PciBridge2'])
+Source('PciBridge2.cc')
+DebugFlag('PciBridge2')
+
+SimObject('pcie_link.py',sim_objects=['PCIELink'])
+Source('pcie_link.cc')
+DebugFlag('PCIELink')
+
+SimObject('CxlMemory.py',sim_objects=['CxlMemory'])
+Source('cxl_memory.cc')
+DebugFlag('CxlMemory')
+
+GTest('reg_bank.test', 'reg_bank.test.cc') 

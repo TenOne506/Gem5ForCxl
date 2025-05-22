@@ -476,7 +476,14 @@ class String(ParamValue, str):
 
     def getValue(self):
         return self
-
+    
+# class PciHost(ParamValue):
+#     cxx_type="gem5::PciHost"
+#     cmd_line_settable = True
+#     @classmethod
+#     def pybind_predecls(cls, code):
+#         code('#include "/base/host.hh"')
+    
 
 # superclass for "numeric" parameter values, to emulate math
 # operations in a type-safe way.  e.g., a Latency times an int returns
@@ -731,6 +738,7 @@ class Percent(CheckedInt):
     cxx_type = "int"
     min = 0
     max = 100
+
 
 
 class Cycles(CheckedInt):
@@ -2533,3 +2541,4 @@ __all__ = [
     "DeprecatedParam",
     "PcCountPair",
 ]
+#"PciHost",

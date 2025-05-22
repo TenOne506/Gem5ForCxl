@@ -62,7 +62,7 @@ SimpleMemobj::getPort(const std::string &if_name, PortID idx)
 }
 
 void
-SimpleMemobj::CPUSidePort::sendPacket(PacketPtr pkt)
+SimpleMemobj::CPUSidePort::sendPacket(PacketPtr pkt)  
 {
     // Note: This flow control is very simple since the memobj is blocking.
 

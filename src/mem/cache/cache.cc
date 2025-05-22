@@ -358,6 +358,7 @@ Cache::handleTimingReqMiss(PacketPtr pkt, CacheBlk *blk, Tick forward_time,
             // region, where the kernel marks a region uncacheable before
             // flushing. clflush results in a CleanInvalidReq.
             assert(pkt->isRead() || pkt->isCleanInvalidateRequest());
+            //assert(pkt->isRead());
             allocateMissBuffer(pkt, forward_time);
         }
 

@@ -40,13 +40,14 @@
 
 #include "dev/io_device.hh"
 #include "dev/pci/types.hh"
+#include "dev/PciBridge2.hh"
 
 namespace gem5
 {
 
 struct PciHostParams;
 struct GenericPciHostParams;
-
+class config_class;
 class PciDevice;
 class Platform;
 
@@ -167,6 +168,7 @@ class PciHost : public PioDevice
                                            PciBusAddr bus_addr, PciIntPin pin);
 
     /** @} */
+    void registerBridge(config_class *bridge , PciBusAddr bus_Addr);
 
   protected:
     /**
@@ -243,6 +245,7 @@ class PciHost : public PioDevice
   private:
     /** Currently registered PCI devices */
     std::map<PciBusAddr, PciDevice *> devices;
+    std::map<PciBusAddr, config_class*> bridges ; // currently registered PCI bridges , i
 };
 
 /**
